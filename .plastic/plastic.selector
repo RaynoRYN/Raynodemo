@@ -1,0 +1,4 @@
+repository "Wooden Slug@yanruobai@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"

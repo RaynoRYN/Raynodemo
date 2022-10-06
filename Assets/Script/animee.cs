@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class animee : MonoBehaviour
 
@@ -10,11 +11,12 @@ public class animee : MonoBehaviour
     public Animator anim;
     public LayerMask ground;
     public Collider2D coll;
+    private PlayerMove Player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player = GameObject.FindWithTag("Pl").GetComponent<PlayerMove>();
     }
 
     void Swichanim()
@@ -35,6 +37,7 @@ public class animee : MonoBehaviour
         }
 
     }
+
 
     // Update is called once per frame
     void Update()

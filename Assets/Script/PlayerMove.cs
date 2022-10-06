@@ -72,16 +72,16 @@ public class PlayerMove : MonoBehaviour
             Points += 100;
             Num.text =Points.ToString();
         }
+        
+        if(collision.tag == "bullet")
+        {
+            anim.SetTrigger("die");
+            GameObject.FindGameObjectWithTag("legs").GetComponent<animee>().anim.SetTrigger("Die");
+        }
     }
 
  
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "enemy")
-        {
-            Destroy(collision.gameObject);
-        }
-    }*/
+   
 
     void Update()
     {

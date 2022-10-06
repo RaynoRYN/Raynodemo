@@ -8,6 +8,8 @@ TagManager:
   - enemy
   - bullet
   - weapon
+  - Pl
+  - legs
   layers:
   - Default
   - TransparentFX

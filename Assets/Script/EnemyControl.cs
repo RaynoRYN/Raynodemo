@@ -44,7 +44,7 @@ public class EnemyControl : MonoBehaviour
         }
         //ºÍÍæ¼ÒµÄ¾àÀë
         float dis=Vector3.Distance(Pl.transform.position,transform.position);
-        if (dis < 5&& timer > 3f)
+        if (dis < 4&& timer > 3f)
         {
             Instantiate(Bullet, FirePoint.position, FirePoint.rotation).GetComponent<bullet>().dir = transform.localScale.x * -1;
             timer = 0;

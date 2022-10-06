@@ -19,6 +19,8 @@ public class PlayerMove : MonoBehaviour
     public GameObject Bullet;
     public Transform FirePoint;
     public float timer = 0;
+    public float timer2 = 0;
+    private bool Live = true;
 
     // Start is called before the first frame update
     void Start()
@@ -75,8 +77,11 @@ public class PlayerMove : MonoBehaviour
         
         if(collision.tag == "bullet")
         {
+            Live = false;
+            timer = 0;
             anim.SetTrigger("die");
             GameObject.FindGameObjectWithTag("legs").GetComponent<animee>().anim.SetTrigger("Die");
+            
         }
     }
 
@@ -85,15 +90,28 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
-        Jumpp();
-        Swichanim();
-        Attacking();
+        if (Live)
+        {
+            timer += Time.deltaTime;
+            Jumpp();
+            Swichanim();
+            Attacking();
+        }
+        else
+        {
+            timer2 += Time.deltaTime;
+            if (timer2 > 1.1f)
+            {
+                Live = true;
+                timer2 = 0;
+            }
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(Live)
         Movement();
 
     }

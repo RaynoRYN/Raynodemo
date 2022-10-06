@@ -16,7 +16,9 @@ public class PlayerMove : MonoBehaviour
     public Animator anim;
     public int Points;
     public TextMeshProUGUI Num;
-
+    public GameObject Bullet;
+    public Transform FirePoint;
+    public float timer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +46,22 @@ public class PlayerMove : MonoBehaviour
 
     }
 
+    void Attacking()
+    {
+        
+        if (timer > 0.6f)
+        {
+            
+            if (Input.GetKeyDown(KeyCode.J))
+            {   
+                timer = 0;
+                anim.SetTrigger("attack");
+                Instantiate(Bullet, FirePoint.position, FirePoint.rotation).GetComponent<bullet>().dir=transform.localScale.x;  //生成子弹确认方向
+            }
+
+        }
+    }
+
 
     //收集
     private void OnTriggerEnter2D(Collider2D collision)    
@@ -56,19 +74,21 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    //攻击
-    private void OnCollisionEnter2D(Collision2D collision)
+ 
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "enemy")
         {
             Destroy(collision.gameObject);
         }
-    }
+    }*/
 
     void Update()
     {
+        timer += Time.deltaTime;
         Jumpp();
         Swichanim();
+        Attacking();
     }
 
     // Update is called once per frame

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6489430869672335436}
   - component: {fileID: 2163424467699103003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: image2873
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7975215906700677842}
   - component: {fileID: 8139598163628574217}
   - component: {fileID: 462313225306489776}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vehicleenemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
